@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+unsigned long a[1000000];
+main()
+{
+unsigned long n,i,k,j;
+cin>>n;	
+for(i=0;i<n;i++)
+{
+	cin>>k;
+	a[k]++;
+}
+for(i=0;i<1000000;i++)
+{
+	if(a[i]>0)
+	{
+	for(j=a[i];j>0;j--)
+	cout<<i<<endl;
+    }
+}
+} 
