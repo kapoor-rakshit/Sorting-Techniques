@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[1000010];
+void heapify(int a[],int root,int n)
+{
+    int child=2*root;
+    if(child+1<=n)                                        //check if right child exists
+    {
+       if(a[child]>=a[root]&&a[child]>=a[child+1])
+       {
+           swap(a[child],a[root]);
+           heapify(a,child,n);
+       }
+       else if(a[child+1]>=a[root]&&a[child+1]>=a[child])
+       {
+           swap(a[child+1],a[root]);
+           heapify(a,child+1,n);
+       }
+    }
+    else
+    {
+        if(child<=n&&a[child]>=a[root])                  //check if left child exists
+            swap(a[child],a[root]);
+    }
+}
+void makeheap(int a[],int n)
+{
+    for(int i=n/2;i>=1;i--)
+        heapify(a,i,n);
+}
+main()
+{
+   int n;
+   scanf("%d",&n);
+   for(int i=1;i<=n;i++)
+        scanf("%d",&a[i]);
+   makeheap(a,n);
+   swap(a[1],a[n]);
+   for(int i=n-1;i>=1;i--)
+   {
+       heapify(a,1,i);
+       swap(a[1],a[i]);
+   }
+   for(int i=1;i<=n;i++)
+   printf("%d ",a[i]);
+}
