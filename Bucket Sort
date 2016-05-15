@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+void bucketsort(double a[],int n)
+{
+   std::vector<double> bucket[n];
+
+    for(int i=0;i<n;i++)
+    {
+        int bucket_index=abs(n*a[i]);
+        bucket[bucket_index].push_back(a[i]);
+    }
+    for(int i=0;i<n;i++)
+        std::sort(bucket[i].begin(),bucket[i].end());
+    int ind=0;
+    for(int i=0;i<n;i++)
+        for(int j=0;j<bucket[i].size();j++)
+        a[ind++]=bucket[i][j];
+}
+main()
+{
+    int n;
+    scanf("%d",&n);
+    double a[n];
+    for(int i=0;i<n;i++)
+        scanf("%lf",&a[i]);
+    bucketsort(a,n);
+    for(int i=0;i<n;i++)
+        printf("%lf ",a[i]);
+}
