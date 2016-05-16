@@ -23,11 +23,11 @@ void radixsort(int a[],int n)
 {
     int gr=*max_element(a,a+n);
     int factor=1;
-    while(gr>0)
+    while(gr/factor>0)                             //donot use while(gr>0) and the assignment shown below in comments.
     {
         hashing(a,n,factor);
         factor*=10;
-        gr/=factor;
+                                                  //    gr/=factor; (A bug which makes the loop run one time less than required)
     }
 }
 main()
