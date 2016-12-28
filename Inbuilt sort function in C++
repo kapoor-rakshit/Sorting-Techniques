@@ -2,9 +2,16 @@
 using namespace std;
 
 bool chk(int x,int y){
-	return x>y;	                   //returns true if x>y   (reversed the order)
-	}
+	return x>y;	                                                      //returns true if x>y   (reversed the order)
+	}                                                                    //the no. before must be greater than later
 	
+bool chk(pair<int,char>apair , pair<int,char>bpair)                       //sorting in pair acc to different conditions
+{
+    if(apair.first==bpair.first)                               //if first value of pair is equal, then values in answer must have
+            return apair.second < bpair.second;                 //according to value before must be less than later in terms of second
+    else return apair.first > bpair.first;              //else value before must be greater than later in terms of first
+}
+
 int main() {
 	int n;
 	scanf("%d",&n);
