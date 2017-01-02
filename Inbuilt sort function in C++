@@ -12,6 +12,11 @@ bool chk(pair<int,char>apair , pair<int,char>bpair)                       //sort
     else return apair.first > bpair.first;              //else value before must be greater than later in terms of first
 }
 
+bool chk(int x,int y)
+{
+    return abs(x)<abs(y);                               //order in ascending order in terms of absolute value
+}
+
 int main() {
 	int n;
 	scanf("%d",&n);
